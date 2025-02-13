@@ -1,0 +1,18 @@
+.pedalContainer {
+    input {
+        margin-bottom: .5em;
+    }
+}
+
+.pedal {
+    width: 15rem;
+    height: 20rem;
+    border-radius: 5px;
+    background-color: var(--pedalColor, rgb(153, 153, 153));
+    padding: 1em;
+
+    h1 {
+        text-align: center;
+        margin: .2em 0;
+    }
+}

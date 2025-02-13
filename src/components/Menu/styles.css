@@ -1,0 +1,30 @@
+#menuContainer {
+    width: 15rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #364D39;
+    padding: .5em;
+    box-sizing: border-box;
+
+    .traco {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #userProfile {
+        display: flex;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+        }
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+    }
+}

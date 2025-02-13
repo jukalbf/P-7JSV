@@ -1,0 +1,38 @@
+.knobContainer {
+    width: 3em;
+    height: 3em;
+}
+
+.knob {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: .2em;
+    background-color: black;
+    width: 3em;
+    height: 3em;
+    border-radius: 30px;
+    position: relative;
+    transform: rotate(var(--rotate, 0deg));
+}
+
+.pointer {
+    background-color: white;
+    width: 4px;
+    height: 20px;
+    position: absolute;
+    right: 45%;
+}
+
+.value {
+    display: flex;
+    width: 20px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+}
+
+.value:hover {
+    border: 1px solid black;
+    border-radius: .3em;
+}
