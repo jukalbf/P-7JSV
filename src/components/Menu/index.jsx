@@ -10,7 +10,7 @@ function Menu() {
       <div id="userProfile">
         <User />
         <div>
-          <h3>User name</h3>
+          <h4>User name</h4>
           <span>Sair</span>
         </div>
       </div>

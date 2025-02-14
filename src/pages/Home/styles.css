@@ -1,0 +1,37 @@
+#homeContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  width: 100%;
+
+  .titlePage {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .presetsContainer {
+    padding: 1em;
+
+    .addButton {
+      width: 2em;
+      filter: invert(1);
+      cursor: pointer;
+      margin-left: 1em;
+      margin-bottom: 1em;
+    }
+
+    .presets {
+      display: flex;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      .preset {
+        list-style: none;
+      }
+    }
+  }
+}
