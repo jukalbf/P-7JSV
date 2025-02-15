@@ -50,12 +50,17 @@ const Home = () => {
   function closeCreate() {
     setVisible(false);
   }
+  
+  function presetScreen(preset) {
+    navigate(`/home/preset/${preset.id_preset}`);
+  }
 
   const presetList = presets.map((preset) => (
-    <li key={preset.id_preset} className="preset">
+    <li key={preset.id_preset} className="preset" onClick={() => presetScreen(preset)}>
       <Preset nome={preset.nome} />
     </li>
   ));
+
 
   return (
     <div id="homeContainer">

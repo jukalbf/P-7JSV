@@ -7,14 +7,19 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/index.jsx";
 import Login from "./pages/Login/index.jsx";
 
+import Preset from "./components/Preset/index.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/home",
     element: <App />,
     children: [
       {
-        path: "/home", element: <Home />
+        path: "", element: <Home />
       },
+      {
+        path: "preset/:id", element: <Preset />
+      }
     ]
   },
   {
