@@ -21,6 +21,15 @@
       flex-direction: column;
       justify-content: center;
       color: white;
+
+      span {
+        cursor: pointer;
+        color: #E29B9B;
+      }
+
+      span:hover {
+        color: #ff6767;
+      }
     }
   }
 

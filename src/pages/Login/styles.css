@@ -1,0 +1,75 @@
+#loginPage {
+  background-image: url("../../img/loginBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #titleLogin {
+    font-size: 50px;
+    color: #fff;
+  }
+
+  .loginContainer {
+    width: 25rem;
+    border-radius: 5px;
+    background-color: #DDDAE8;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 1em;
+
+    h1 {
+        margin: .5em auto;
+        /* margin-bottom: .5em; */
+    }
+
+    #loginInputs {
+        width: 100%;
+        padding: 0 1em;
+        box-sizing: border-box;
+
+        input {
+            width: 100%;
+            height: 2em;
+            padding: 0;
+            padding-left: .5em;
+            outline: none;
+            font-size: 1.2em;
+            border: 0;
+            background-color: rgba(0, 0, 0, 0);
+            border-bottom: 2px solid #000;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        #buttonEnter {
+            background-color: #364D39;
+            border: none;
+            width: 100%;
+            height: 2em;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 2px;
+            margin-bottom: .5em;
+            cursor: pointer;
+        }
+
+        #buttonCadastro {
+            background-color: #17A947;
+            border: none;
+            width: 100%;
+            height: 2em;
+            font-size: 20px;
+            font-weight: normal;
+            color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+    }
+  }
+}

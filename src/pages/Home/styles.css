@@ -10,16 +10,17 @@
     margin-bottom: 2rem;
   }
 
+  .addButton {
+    width: 2em;
+    filter: invert(1);
+    cursor: pointer;
+    margin-left: 1em;
+    margin-bottom: 1em;
+  }
+
   .presetsContainer {
     padding: 1em;
-
-    .addButton {
-      width: 2em;
-      filter: invert(1);
-      cursor: pointer;
-      margin-left: 1em;
-      margin-bottom: 1em;
-    }
+    height: 20rem;
 
     .presets {
       display: flex;
@@ -28,6 +29,8 @@
       padding: 0;
       justify-content: space-around;
       flex-wrap: wrap;
+      height: 25em;
+      overflow: auto;
 
       .preset {
         list-style: none;

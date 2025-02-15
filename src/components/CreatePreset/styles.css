@@ -1,0 +1,27 @@
+#createPresetContainer {
+    top: 13rem;
+    left: 20rem;
+    position: absolute;
+    background-color: #324131;
+    padding: 1em;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        color: #fff;
+        text-align: center;
+    }
+
+    #nomeInputPreset {
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #4A6248;
+        border: none;
+        outline: none;
+        padding-left: .3em;
+        font-size: 20px;
+        border-bottom: 1px solid #B0E7AC;
+        color: #fff;
+    }
+}
