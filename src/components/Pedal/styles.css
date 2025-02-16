@@ -5,8 +5,8 @@
 }
 
 .pedal {
-    width: 15rem;
-    height: 20rem;
+    width: 10rem;
+    height: 15rem;
     border-radius: 5px;
     background-color: var(--pedalColor, rgb(153, 153, 153));
     padding: 1em;
@@ -14,5 +14,14 @@
     h1 {
         text-align: center;
         margin: .2em 0;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
     }
 }

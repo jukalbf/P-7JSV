@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 
-const Knob = () => {
-    const [rotateValue, setRotateValue] = useState(0);
-    
-    function handleChange(e) {
-        setRotateValue(e.target.value);
-    }
-
+const Knob = ({ value, idKnob }) => {
+  const [rotateValue, setRotateValue] = useState(value);
+  
   return (
     <div className="knobContainer">
-      <div className="knob" style={{ "--rotate": rotateValue + "deg"}}>
+      <div className="knob" style={{ transform: `rotate(${rotateValue - 135}deg)` }}>
         <div className="pointer"></div>
       </div>
       <div className="putValue">
-        <input type="text" name="value" className="value" onChange={handleChange} />
+        <span>{value}</span>
       </div>
     </div>
   );

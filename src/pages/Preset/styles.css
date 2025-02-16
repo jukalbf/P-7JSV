@@ -1,4 +1,21 @@
 #presetScreen {
     width: 100%;
     height: 100%;
+    padding: 3rem;
+
+    .pageTitle {
+        font-size: 70px;
+        color: #fff;
+    }
+
+    .nomePreset {
+        font-size: 40px;
+    }
+    
+    .presetInfos {
+        
+        .listaPedais {
+            padding: 0;
+        }
+    }
 }

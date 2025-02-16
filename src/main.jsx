@@ -6,8 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home/index.jsx";
 import Login from "./pages/Login/index.jsx";
-
-import Preset from "./components/Preset/index.jsx";
+import Preset from "./pages/Preset/index.jsx";
 
 const router = createBrowserRouter([
   {
