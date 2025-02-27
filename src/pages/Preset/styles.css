@@ -7,15 +7,41 @@
         font-size: 70px;
         color: #fff;
     }
-
-    .nomePreset {
-        font-size: 40px;
-    }
     
     .presetInfos {
         
         .listaPedais {
             padding: 0;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nomePreset {
+            font-size: 40px;
+            color: #fff;
         }
     }
+}
+
+.pedalAddContainer {
+    width: 10rem;
+    height: 15rem;
+    border-radius: 5px;
+    background-color: var(--pedalColor, rgb(153, 153, 153));
+    padding: 1em;
+    opacity: .5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: ease-in-out 300ms;
+
+    img {
+        width: 50%;
+    }
+}
+
+.pedalAddContainer:hover {
+    box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, .7);
 }

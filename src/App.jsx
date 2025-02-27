@@ -1,7 +1,7 @@
-import Pedal from "./components/Pedal/index";
 import Menu from "./components/Menu";
 import { Outlet } from "react-router-dom";
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

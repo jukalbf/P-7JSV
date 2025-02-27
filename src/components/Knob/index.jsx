@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
 import "./styles.css";
+import PropTypes from "prop-types";
 
 const Knob = ({ value, idKnob }) => {
-  const [rotateValue, setRotateValue] = useState(value);
+  const rotateValue = (value * 270) / 100 - 135;
   
   return (
-    <div className="knobContainer">
-      <div className="knob" style={{ transform: `rotate(${rotateValue - 135}deg)` }}>
+    <div className="knobContainer" id={idKnob}>
+      <div className="knob" style={{ transform: `rotate(${rotateValue}deg)` }}>
         <div className="pointer"></div>
       </div>
       <div className="putValue">
@@ -15,5 +15,10 @@ const Knob = ({ value, idKnob }) => {
     </div>
   );
 };
+
+Knob.propTypes = {
+  value: PropTypes.number.isRequired,
+  idKnob: PropTypes.number.isRequired,
+}
 
 export default Knob;

@@ -1,0 +1,38 @@
+.knobCreateContainer {
+    /* width: 15rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 10rem;
+    position: absolute;
+    background-color: #4A6248;
+    border-radius: 3px;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, .3);
+    padding: 1em;
+
+    .knobValue {
+        width: 3em;
+        background-color: rgba(0, 0, 0, 0);
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #B0E7AC;
+        margin-bottom: 1em;
+    }
+
+    .valueType {
+        outline: none;
+        border-radius: 3px;
+        font-size: 17px;
+        width: 100%;
+    }
+
+    .knobName {
+        outline: none;
+        border-radius: 3px;
+        font-size: 17px;
+        margin: 1em 0;
+        width: 100%;
+        box-sizing: border-box;
+        border: 0;
+    }
+}

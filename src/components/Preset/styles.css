@@ -1,5 +1,5 @@
 .presetContainer {
-  width: 20em;
+  width: 19em;
   height: 10em;
   background-color: #d9d9d9;
   border-radius: 3px;
@@ -11,4 +11,8 @@
     user-select: none;
     -webkit-user-select: none;
   }
+}
+
+.presetBg {
+  background-color: #d9d9d9;
 }

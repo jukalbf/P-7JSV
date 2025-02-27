@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
+import PropTypes from "prop-types";
 import "./styles.css";
 
-function CreatePreset({ closeCreate }) {
+function EditPreset({ closeCreate }) {
   const [presetName, setPresetName] = useState("");
   const [presets, setPresets] = useState([]);
 
@@ -34,7 +35,7 @@ function CreatePreset({ closeCreate }) {
     setTimeout(fetchPresets, 1000);
   }, []);
 
-  function createPreset() {
+  async function createPreset() {
     try {
       const token = localStorage.getItem("token");
 
@@ -43,25 +44,25 @@ function CreatePreset({ closeCreate }) {
       let name = presetName.trim();
 
       if (name === "") {
-        name = presets.length;
+        name = `Preset ${presets.length}`;
         setPresetName(name);
       }
 
       setPresetName(name);
 
-      const response = fetch(`${url}/preset`, {
+      const response = await fetch(`${url}/preset`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "x-access-token": token,
         },
         body: JSON.stringify({
-          nome: presetName,
+          nome: name,
           userId: tokenDecoded.userId,
         }),
       });
 
-      console.log(presetName);
+      // console.log(presetName);
 
       if (!response.ok) throw new Error(`Erro: ${response.status}`);
     } catch (err) {
@@ -98,4 +99,8 @@ function CreatePreset({ closeCreate }) {
   );
 }
 
-export default CreatePreset;
+EditPreset.propTypes = {
+  closeCreate: PropTypes.func.isRequired
+}
+
+export default EditPreset;
