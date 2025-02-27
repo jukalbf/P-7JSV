@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import jwt_decode from "jwt-decode";
 import "./styles.css";
 import User from "../User/";
 import { useNavigate } from "react-router-dom";
@@ -9,23 +8,27 @@ function Menu() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = "http://localhost/8000";
+    const url = "http://localhost:8000";
 
     async function userName() {
       const token = localStorage.getItem("token");
 
-      const id = jwt_decode(token);
-
-      const user = await fetch(`${url}/user/${id}`, {
+      const response = await fetch(`${url}/user/userLogged`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "x-access-token": token,
         }
       })
 
-      setUserName(user.nome)
+      const user = await response.json();
+
+      console.log(user);
+      setUserName(user.nome);
     }
-  });
+
+    userName();
+  }, []);
 
   function logout() {
     localStorage.removeItem("token");
@@ -39,7 +42,7 @@ function Menu() {
       <div id="userProfile">
         <User />
         <div id="userNameLogout">
-          <h4>User name</h4>
+          <h4>{userName}</h4>
           <span onClick={logout}>Sair</span>
         </div>
       </div>

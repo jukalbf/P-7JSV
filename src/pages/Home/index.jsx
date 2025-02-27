@@ -3,7 +3,7 @@ import "./styles.css";
 import addBtn from "../../icons/adicionar-aplicativos.svg";
 import Preset from "../../components/Preset";
 import { useState } from "react";
-import CreatePreset from "../../components/EditPreset";
+import AddPreset from "../../components/AddPreset";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -42,7 +42,7 @@ const Home = () => {
     }
 
     fetchPresets();
-  }, [navigate]);
+  });
 
   function openCreate() {
     setVisible(true);
@@ -59,7 +59,7 @@ const Home = () => {
   const presetList = presets.map((preset) => (
     <li
       key={preset.id_preset}
-      className="preset"
+      className="cursor-pointer"
       onClick={() => presetScreen(preset)}
     >
       <Preset nome={preset.nome} />
@@ -67,17 +67,19 @@ const Home = () => {
   ));
 
   return (
-    <div id="homeContainer">
-      <h1 className="titlePage">Presets</h1>
+    <div className="container p-3">
+      <h1 style={{fontSize: "80px"}} className="fw-bold title-color">Presets</h1>
+      <hr className="hr-blurry" style={{ color: "#fff" }}/>
       <img
         src={addBtn}
         alt="add-button"
-        className="addButton"
+        className="m-2"
+        style={{width: "3em", cursor: "pointer"}}
         onClick={openCreate}
       />
-      <div className="presetsContainer">
-        {visible && <CreatePreset closeCreate={closeCreate} />}
-        <ul className="presets">{presetList}</ul>
+      <div className="container p-0 overflow-auto" style={{ height: "400px" }}>
+        <ul className="gap-2 d-flex flex-wrap list-unstyled m-0 p-0 mh-100 justify-content-around">{presetList}</ul>
+        {visible && <AddPreset closeCreate={closeCreate} />}
       </div>
     </div>
   );

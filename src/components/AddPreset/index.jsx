@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import PropTypes from "prop-types";
 import "./styles.css";
+import { Button } from "react-bootstrap";
 
-function EditPreset({ closeCreate }) {
+function AddPreset({ closeCreate }) {
   const [presetName, setPresetName] = useState("");
   const [presets, setPresets] = useState([]);
 
@@ -75,7 +76,7 @@ function EditPreset({ closeCreate }) {
   }
 
   return (
-    <div id="createPresetContainer">
+    <div id="createPresetContainer" className="gap-1">
       <h1>Novo preset</h1>
       <form method="post">
         <input
@@ -86,21 +87,25 @@ function EditPreset({ closeCreate }) {
           onChange={handlePresetName}
         />
       </form>
-      <button type="button" onClick={() => {
-        createPreset();
-        closeCreate();
-        }}>
+      <Button
+        className="btn-sm"
+        variant="primary"
+        onClick={() => {
+          createPreset();
+          closeCreate();
+        }}
+      >
         Criar
-      </button>
-      <button type="button" onClick={closeCreate}>
+      </Button>
+      <Button className="btn-sm" variant="secondary" onClick={closeCreate}>
         Cancelar
-      </button>
+      </Button>
     </div>
   );
 }
 
-EditPreset.propTypes = {
-  closeCreate: PropTypes.func.isRequired
-}
+AddPreset.propTypes = {
+  closeCreate: PropTypes.func.isRequired,
+};
 
-export default EditPreset;
+export default AddPreset;

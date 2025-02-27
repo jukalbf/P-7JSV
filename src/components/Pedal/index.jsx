@@ -21,11 +21,13 @@ const Pedal = ({ nome, idPedal, openEdit }) => {
   }, [idPedal]);
 
   const knobList = knobs.map((knob) => (
-    <Knob key={knob.id_knob} value={knob.valor} idKnob={knob.id_knob} />
+    <li key={knob.id_knob}>
+      <Knob value={knob.valor} idKnob={knob.id_knob} />
+    </li>
   ));
 
   return (
-    <div className="pedalContainer">
+    <div className="container h-100">
       {/* <input
         type="text"
         name="colorChange"
@@ -33,9 +35,9 @@ const Pedal = ({ nome, idPedal, openEdit }) => {
         placeholder="codigo da cor"
         // onChange={handleChange}
       /> */}
-      <div className="pedal" id={idPedal}>
+      <div className="pedal w-100 h-100" id={idPedal}>
         <h1 className="pedalName">{nome}</h1>
-        <ul className="knobs">{knobList}</ul>
+        <ul className="d-flex">{knobList}</ul>
         <span className="editBtn" onClick={openEdit}>Editar</span>
       </div>
     </div>

@@ -52,12 +52,14 @@ function Preset() {
         },
       });
 
+      setPedais([]);
+
       const preset = await response.json();
       setPreset(preset);
     }
 
     async function fetchPedais() {
-      const response = await fetch(`${url}/preset/pedals`, {
+      const response = await fetch(`${url}/preset/${id}/pedals`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -70,8 +72,8 @@ function Preset() {
     }
 
     fetchPreset();
-    setTimeout(fetchPedais, 500);
-  });
+    fetchPedais()
+  }, [id]);
 
   function pedalIndex() {
     const index = pedais.length + 1;
@@ -87,26 +89,28 @@ function Preset() {
   }
 
   const listPedais = pedais.map((pedal) => (
-    <Pedal
-      key={pedal.id_pedal}
-      idPedal={pedal.id_pedal}
-      nome={pedal.nome}
-      openEdit={openEditComp}
-    />
+    <li key={pedal.id_pedal} className="h-100">
+      <Pedal
+        idPedal={pedal.id_pedal}
+        nome={pedal.nome}
+        openEdit={openEditComp}
+      />
+    </li>
   ));
 
   return (
-    <div id="presetScreen">
-      <h1 className="pageTitle">Pedais</h1>
-      <div className="presetInfos">
-        <h1 className="nomePreset">{preset.nome}</h1>
+    <div className="container p-5">
+      <h1 style={{fontSize: "80px"}} className="fw-bold title-color">Pedais</h1>
+      <hr className="hr-blurry" style={{ color: "#fff" }}/>
+      <div className="presetInfos container">
+        <h1 className="nomePreset" style={{ color: "#fff" }}>{preset.nome}</h1>
         <hr />
-        <ul className="listaPedais">
+        <ul className="container d-flex gap-1" style={{ height: "300px" }}>
           {listPedais}
-          {/* <PedalButtonAdd
+          <PedalButtonAdd
             idPreset={preset.id_preset}
             indexPedal={pedalIndex()}
-          /> */}
+          />
         </ul>
         {openEdit && <PedalEdit closeEdit={closeEdit} />}
       </div>
