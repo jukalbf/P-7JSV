@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./styles.css";
 import Pedal from "../../components/Pedal";
-// import PedalCreate from "../../components/PedalEdit";
 import ButtonAdd from "../../icons/add.svg";
 import PropTypes from "prop-types";
 
@@ -22,6 +21,8 @@ function PedalButtonAdd({ idPreset, indexPedal }) {
     });
 
     if (!response.ok) throw new Error(`Erro: ${response.status}`);
+
+    alert("Pedal criado com sucesso. Recarregue a página para editá-lo.");
   }
 
   return (
@@ -50,8 +51,6 @@ function Preset() {
         },
       });
 
-      setPedais([]);
-
       const preset = await response.json();
       setPreset(preset);
     }
@@ -70,7 +69,7 @@ function Preset() {
     }
 
     fetchPreset();
-    fetchPedais()
+    fetchPedais();
   }, [id]);
 
   function pedalIndex() {
@@ -110,6 +109,7 @@ function Preset() {
 PedalButtonAdd.propTypes = {
   idPreset: PropTypes.number.isRequired,
   indexPedal: PropTypes.number.isRequired,
+  fetchPedais: PropTypes.func.isRequired
 };
 
 export default Preset;
