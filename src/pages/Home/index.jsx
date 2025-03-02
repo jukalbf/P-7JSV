@@ -73,8 +73,8 @@ const Home = () => {
       <img
         src={addBtn}
         alt="add-button"
-        className="m-2"
-        style={{width: "3em", cursor: "pointer"}}
+        className="m-2 my-3"
+        style={{width: "50px", cursor: "pointer", filter: "invert(1)"}}
         onClick={openCreate}
       />
       <div className="container p-0 overflow-auto" style={{ height: "400px" }}>

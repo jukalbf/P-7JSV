@@ -50,8 +50,8 @@ function Login() {
       <div className="loginContainer">
         <h1>Login</h1>
         <form method="post" id="loginInputs" className="d-grid gap-1">
-          <input type="email" id="inputEmail" placeholder="Email" value={email} onChange={handleEmail}/>
-          <input type="password" id="inputEmail" placeholder="Senha" value={password} onChange={handlePassword} />
+          <input type="email" placeholder="Email" value={email} onChange={handleEmail}/>
+          <input type="password" placeholder="Senha" value={password} onChange={handlePassword} />
           <Button variant="primary" size="lg" onClick={() => handleLogin()}>Entrar</Button>
           <Button variant="primary" size="lg">Cadastrar</Button>
         </form>

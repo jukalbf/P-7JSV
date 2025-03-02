@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import "./styles.css";
 import Knob from "../Knob";
+import PedalEdit from "../PedalEdit";
 import PropTypes from "prop-types";
 
-const Pedal = ({ nome, idPedal, openEdit }) => {
+const Pedal = ({ nome, idPedal }) => {
   // const [color, setColor] = useState("");
   const [knobs, setKnobs] = useState([]);
+  const [openEdit, setOpenEdit] = useState(false);
 
   useEffect(() => {
     const url = "http://localhost:8000";
@@ -20,6 +22,14 @@ const Pedal = ({ nome, idPedal, openEdit }) => {
     fetchKnobs();
   }, [idPedal]);
 
+  function closeEdit() {
+    setOpenEdit(false);
+  }
+
+  function openEditComp() {
+    setOpenEdit(true);
+  }
+
   const knobList = knobs.map((knob) => (
     <li key={knob.id_knob}>
       <Knob value={knob.valor} idKnob={knob.id_knob} />
@@ -27,20 +37,16 @@ const Pedal = ({ nome, idPedal, openEdit }) => {
   ));
 
   return (
-    <div className="container h-100">
-      {/* <input
-        type="text"
-        name="colorChange"
-        className="colorChange"
-        placeholder="codigo da cor"
-        // onChange={handleChange}
-      /> */}
+    <>
+    <div className="container h-100 p-0">
       <div className="pedal w-100 h-100" id={idPedal}>
         <h1 className="pedalName">{nome}</h1>
         <ul className="d-flex">{knobList}</ul>
-        <span className="editBtn" onClick={openEdit}>Editar</span>
+        <span className="editBtn" onClick={openEditComp}>Editar</span>
       </div>
     </div>
+    {openEdit && <PedalEdit idPedal={idPedal} closeEdit={closeEdit} />}
+    </>
   );
 };
 

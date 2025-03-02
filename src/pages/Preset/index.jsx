@@ -5,7 +5,6 @@ import Pedal from "../../components/Pedal";
 // import PedalCreate from "../../components/PedalEdit";
 import ButtonAdd from "../../icons/add.svg";
 import PropTypes from "prop-types";
-import PedalEdit from "../../components/PedalEdit";
 
 function PedalButtonAdd({ idPreset, indexPedal }) {
   async function addPedal() {
@@ -37,7 +36,6 @@ function Preset() {
   const { id } = useParams();
   const [preset, setPreset] = useState("");
   const [pedais, setPedais] = useState([]);
-  const [openEdit, setOpenEdit] = useState(false);
 
   useEffect(() => {
     const url = "http://localhost:8000";
@@ -80,20 +78,11 @@ function Preset() {
     return index;
   }
 
-  function openEditComp() {
-    setOpenEdit(true);
-  }
-
-  function closeEdit() {
-    setOpenEdit(false);
-  }
-
   const listPedais = pedais.map((pedal) => (
-    <li key={pedal.id_pedal} className="h-100">
+    <li key={pedal.id_pedal} className="h-100 list-unstyled">
       <Pedal
         idPedal={pedal.id_pedal}
         nome={pedal.nome}
-        openEdit={openEditComp}
       />
     </li>
   ));
@@ -105,14 +94,13 @@ function Preset() {
       <div className="presetInfos container">
         <h1 className="nomePreset" style={{ color: "#fff" }}>{preset.nome}</h1>
         <hr />
-        <ul className="container d-flex gap-1" style={{ height: "300px" }}>
+        <ul className="container d-flex gap-3 p-0" style={{ height: "300px" }}>
           {listPedais}
           <PedalButtonAdd
             idPreset={preset.id_preset}
             indexPedal={pedalIndex()}
           />
         </ul>
-        {openEdit && <PedalEdit closeEdit={closeEdit} />}
       </div>
     </div>
   );

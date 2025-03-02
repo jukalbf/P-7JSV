@@ -5,11 +5,11 @@ const Knob = ({ value, idKnob }) => {
   const rotateValue = (value * 270) / 100 - 135;
   
   return (
-    <div className="knobContainer" id={idKnob}>
-      <div className="knob" style={{ transform: `rotate(${rotateValue}deg)` }}>
+    <div className="container p-0" id={idKnob}>
+      <div className="knob d-flex" style={{ transform: `rotate(${rotateValue}deg)` }}>
         <div className="pointer"></div>
       </div>
-      <div className="putValue">
+      <div className="putValue" style={{ color: "#fff" }}>
         <span>{value}</span>
       </div>
     </div>

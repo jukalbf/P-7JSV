@@ -19,18 +19,28 @@
         padding: 2px 0 2px 5px;
         font-size: 20px;
     }
+}
 
-    .addBtn {
-        width: 4em;
-        height: 4em;
-        border: none;
-        border-radius: 30px;
-        text-align: center;
-        outline: none;
-        background-color: #101610;
-        color: #fff;
-        font-weight: bold;
-        cursor: pointer;
-        opacity: .5;
-    }
+.btn-add-knob-color {
+    background-color: #101610;
+    color: #fff;
+}
+
+.addBtn {
+    width: 2.5em;
+    height: 2.5em;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    outline: none;
+    background-color: #101610;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: .5;
+    transition: ease-in-out 200ms;
+}
+
+.addBtn:hover {
+    opacity: 1;
 }

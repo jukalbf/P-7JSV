@@ -23,7 +23,6 @@ function Menu() {
 
       const user = await response.json();
 
-      console.log(user);
       setUserName(user.nome);
     }
 
