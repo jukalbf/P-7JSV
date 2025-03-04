@@ -1,0 +1,46 @@
+#pedalEditContainer {
+    display: flex;
+    position: absolute;
+    background-color: #324131;
+    width: 15rem;
+    height: 20rem;
+    bottom: 5rem;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 5px;
+
+    .pedalName {
+        margin: 1em auto;
+        width: 80%;
+        background-color: #4A6248;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #B0E7AC;
+        padding: 2px 0 2px 5px;
+        font-size: 20px;
+    }
+}
+
+.btn-add-knob-color {
+    background-color: #101610;
+    color: #fff;
+}
+
+.addBtn {
+    width: 2.5em;
+    height: 2.5em;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    outline: none;
+    background-color: #101610;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: .5;
+    transition: ease-in-out 200ms;
+}
+
+.addBtn:hover {
+    opacity: 1;
+}

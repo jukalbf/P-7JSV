@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 function Login() {
 
@@ -48,11 +49,11 @@ function Login() {
       <h1 id="titleLogin">P-7</h1>
       <div className="loginContainer">
         <h1>Login</h1>
-        <form method="post" id="loginInputs">
-          <input type="email" id="inputEmail" placeholder="Email" value={email} onChange={handleEmail}/>
-          <input type="password" id="inputEmail" placeholder="Senha" value={password} onChange={handlePassword} />
-          <button type="button" id="buttonEnter" onClick={() => handleLogin()}>Entrar</button>
-          <button type="button" id="buttonCadastro">Cadastrar</button>
+        <form method="post" id="loginInputs" className="d-grid gap-1">
+          <input type="email" placeholder="Email" value={email} onChange={handleEmail}/>
+          <input type="password" placeholder="Senha" value={password} onChange={handlePassword} />
+          <Button variant="primary" size="lg" onClick={() => handleLogin()}>Entrar</Button>
+          <Button variant="primary" size="lg">Cadastrar</Button>
         </form>
       </div>
     </div>
