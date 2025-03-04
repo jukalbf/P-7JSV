@@ -5,12 +5,18 @@ import { useEffect, useState } from "react";
 import Knob from "../Knob";
 import "./styles.css";
 import { Button } from "react-bootstrap";
+import KnobCreate from "../KnobCreate/index";
+import KnobEdit from "../KnobEdit";
 // import KnobCreate from "../KnobCreate";
 
 function PedalEdit({ closeEdit, idPedal }) {
   const [pedalInfo, setPedalInfo] = useState({});
   const [pedalKnobs, setPedalKnobs] = useState([]);
   const [pedalNome, setPedalNome] = useState("");
+  const [addKnob, setAddKnob] = useState(false);
+  const [editKnob, setEditKnob] = useState(false);
+  const [knobId, setKnobId] = useState(null);
+
   const url = "http://localhost:8000";
 
   useEffect(() => {
@@ -30,7 +36,7 @@ function PedalEdit({ closeEdit, idPedal }) {
     }
 
     findPedal();
-  }, [idPedal]);
+  });
 
   async function deletePedal() {
     const response = await fetch(
@@ -68,58 +74,89 @@ function PedalEdit({ closeEdit, idPedal }) {
     setPedalNome(e.target.value);
   }
 
+  function openKnobCreate() {
+    setAddKnob(true);
+  }
+
+  function closeKnobCreate() {
+    setAddKnob(false);
+  }
+
+  function openKnobEdit() {
+    setEditKnob(true);
+  }
+
+  function closeKnobEdit() {
+    setEditKnob(false);
+  }
+
+  function getKnobId(e) {
+    setKnobId(e.currentTarget.id);
+  }
+
   const knobList = pedalKnobs.map((knob) => (
-    <li key={knob.id_knob} className="list-unstyled m-0">
-      <Knob idKnob={knob.id_knob} value={knob.valor} />
+    <li
+      key={knob.id_knob}
+      id={knob.id_knob}
+      className="list-unstyled m-0"
+      onClick={getKnobId}
+    >
+      <Knob idKnob={knob.id_knob} click={openKnobEdit} name={knob.nome} value={knob.valor} />
     </li>
   ));
 
   return (
-    <div
-      className="container position-absolute p-3 d-flex flex-column z-3 shadow-lg"
-      style={{
-        width: "250px",
-        backgroundColor: "#324131",
-        top: "35%",
-        left: "50%",
-      }}
-    >
-      <CloseButton onClick={closeEdit} className="mb-2" />
-      <input
-        type="text"
-        className="input fs-4 ps-2"
-        style={{ height: "40px" }}
-        placeholder={pedalInfo.nome}
-        value={pedalNome}
-        onChange={handleChangeName}
-      />
-      <ul className="container d-flex my-3 gap-2 flex-wrap">
-        {knobList}
-        <button type="button" className="addBtn">
-          +
-        </button>
-      </ul>
-      <div className=" d-grid gap-2" style={{ top: "100px" }}>
-        <Button
-          variant="primary"
-          onClick={() => {
-            editPedal();
-            closeEdit();
-          }}
-        >
-          Editar
-        </Button>
-        <Button
-          variant="danger"
-          onClick={() => {
-            deletePedal();
-            closeEdit();
-          }}
-        >
-          Deletar
-        </Button>
+    <>
+      {editKnob && <KnobEdit closeKnobEdit={closeKnobEdit} idKnob={knobId} idPedal={idPedal} />}
+      <div
+        className="container position-absolute p-3 d-flex flex-column z-3 shadow-lg"
+        style={{
+          width: "250px",
+          backgroundColor: "#324131",
+          top: "14rem",
+          right: "30rem",
+        }}
+      >
+        <CloseButton onClick={closeEdit} className="mb-2" />
+        <input
+          type="text"
+          className="input fs-4 ps-2"
+          style={{ height: "40px" }}
+          placeholder={pedalInfo.nome}
+          value={pedalNome}
+          onChange={handleChangeName}
+        />
+        <ul className="container d-flex my-3 gap-2 flex-wrap">
+          {knobList}
+          <button type="button" className="addBtn" onClick={openKnobCreate}>
+            +
+          </button>
+        </ul>
+        <div className=" d-grid gap-2" style={{ top: "100px" }}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              editPedal();
+              closeEdit();
+            }}
+          >
+            Editar
+          </Button>
+          <Button
+            variant="danger"
+            onClick={() => {
+              deletePedal();
+              closeEdit();
+            }}
+          >
+            Deletar
+          </Button>
+        </div>
       </div>
-    </div>
+      {addKnob && (
+        <KnobCreate closeKnobCreate={closeKnobCreate} idPedal={idPedal} />
+      )}
+    </>
   );
 }
 

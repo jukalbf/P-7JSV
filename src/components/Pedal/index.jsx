@@ -32,16 +32,16 @@ const Pedal = ({ nome, idPedal }) => {
 
   const knobList = knobs.map((knob) => (
     <li key={knob.id_knob}>
-      <Knob value={knob.valor} idKnob={knob.id_knob} />
+      <Knob value={knob.valor} name={knob.nome} idKnob={knob.id_knob} />
     </li>
   ));
 
   return (
     <>
-    <div className="container h-100 p-0">
+    <div className="container h-100 p-0"style={{ maxWidth: "260px" }}>
       <div className="pedal w-100 h-100" id={idPedal}>
-        <h1 className="pedalName">{nome}</h1>
-        <ul className="d-flex">{knobList}</ul>
+        <h1 style={{ overflowWrap: "break-word" }}>{nome}</h1>
+        <ul className="d-flex list-unstyled container gap-4">{knobList}</ul>
         <span className="editBtn" onClick={openEditComp}>Editar</span>
       </div>
     </div>

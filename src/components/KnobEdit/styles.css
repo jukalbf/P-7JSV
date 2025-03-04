@@ -1,10 +1,10 @@
-.knobCreateContainer {
+.knobEditContainer {
     /* width: 15rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    right: 17rem;
+    left: 26rem;
     top: 14rem;
     background-color: #4A6248;
     border-radius: 3px;
